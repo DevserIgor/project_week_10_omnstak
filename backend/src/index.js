@@ -1,6 +1,7 @@
 //cria a variavel constante com instância de express
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const routes = require('./routes');
 
 // chama o express para dentro da constante 'app', (servidor);
@@ -9,6 +10,7 @@ mongoose.connect('mongodb+srv://igor:igor@cluster0-o8s9m.mongodb.net/appigor?ret
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
+app.use(cors());
 app.use(express.json());
 app.use(routes);
 
